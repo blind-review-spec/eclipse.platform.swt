@@ -134,6 +134,9 @@ public Combo (Composite parent, int style) {
  *
  * @see #add(String,int)
  */
+//@ requires string != null;
+//@ requires isValidThread();
+//@ requires isDisposed();
 public void add (String string) {
 	checkWidget ();
 	if (string == null) error (SWT.ERROR_NULL_ARGUMENT);
@@ -784,6 +787,9 @@ int getCharCount() {
  *    <li>ERROR_THREAD_INVALID_ACCESS - if not called from the thread that created the receiver</li>
  * </ul>
  */
+//@ requires index >= 0 && index < getItemCount();
+//@ requires isValidThread();
+//@ requires isDisposed();
 public String getItem (int index) {
 	checkWidget ();
 	int count = getItemCount ();
@@ -809,6 +815,8 @@ public String getItem (int index) {
  *    <li>ERROR_THREAD_INVALID_ACCESS - if not called from the thread that created the receiver</li>
  * </ul>
  */
+//@ requires isValidThread();
+//@ requires isDisposed();
 public int getItemCount () {
 	checkWidget ();
 	if ((style & SWT.READ_ONLY) != 0) {
@@ -1424,6 +1432,8 @@ public void removeVerifyListener (VerifyListener listener) {
  *    <li>ERROR_THREAD_INVALID_ACCESS - if not called from the thread that created the receiver</li>
  * </ul>
  */
+//@ requires isValidThread();
+//@ requires isDisposed();
 public void select (int index) {
 	checkWidget ();
 	int count = getItemCount ();

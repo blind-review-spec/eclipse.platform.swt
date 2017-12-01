@@ -762,6 +762,8 @@ public void setToolTipText (String string) {
  *    <li>ERROR_THREAD_INVALID_ACCESS - if not called from the thread that created the receiver</li>
  * </ul>
  */
+//@ requires isValidThread();
+//@ requires isDisposed();
 public void setWidth (int width) {
 	checkWidget ();
 	if (width < 0) return;

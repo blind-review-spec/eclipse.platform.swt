@@ -129,6 +129,9 @@ public class Text extends Scrollable {
  * @see Widget#checkSubclass
  * @see Widget#getStyle
  */
+//@ requires parent != null;
+//@ requires isValidThread();
+//@ requires isValidSubclass();
 public Text (Composite parent, int style) {
 	super (parent, checkStyle (style));
 	if ((style & SWT.SEARCH) != 0) {
@@ -2179,6 +2182,9 @@ public void setTabs (int tabs) {
  *    <li>ERROR_THREAD_INVALID_ACCESS - if not called from the thread that created the receiver</li>
  * </ul>
  */
+//@ requires string != null;
+//@ requires isValidThread();
+//@ requires isDisposed();
 public void setText (String string) {
 	checkWidget ();
 	if (string == null) error (SWT.ERROR_NULL_ARGUMENT);

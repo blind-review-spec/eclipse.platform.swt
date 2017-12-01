@@ -3556,6 +3556,7 @@ public class Accessible {
 	}
 
 	/* isValidThread was copied from Widget, and rewritten to work in this package */
+	//@ requires true;
 	boolean isValidThread () {
 		return control.getDisplay ().getThread () == Thread.currentThread ();
 	}

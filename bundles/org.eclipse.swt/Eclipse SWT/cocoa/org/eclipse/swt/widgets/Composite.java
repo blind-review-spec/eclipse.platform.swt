@@ -88,6 +88,8 @@ Composite () {
  * @see SWT#DOUBLE_BUFFERED
  * @see Widget#getStyle
  */
+//@ requires parent != null;
+//@ requires org.eclipse.swt.accessibility.Acessible.isValidThread();
 public Composite (Composite parent, int style) {
 	super (parent, style);
 }
@@ -216,6 +218,8 @@ public void changed (Control[] changed) {
 }
 
 @Override
+//@ requires org.eclipse.swt.accessibility.Acessible.isValidThread();
+//@ requires org.eclipse.swt.accessibility.Acessible.control.isDisposed();
 public Point computeSize (int wHint, int hHint, boolean changed) {
 	checkWidget();
 	display.runSkin ();

@@ -91,6 +91,9 @@ public class Label extends Control {
  * @see Widget#checkSubclass
  * @see Widget#getStyle
  */
+//@ requires parent != null;
+//@ requires isValidThread();
+//@ requires isValidSubclass();
 public Label (Composite parent, int style) {
 	super (parent, checkStyle (style));
 }
@@ -538,6 +541,9 @@ public void setImage (Image image) {
  *    <li>ERROR_THREAD_INVALID_ACCESS - if not called from the thread that created the receiver</li>
  * </ul>
  */
+//@ requires string != null;
+//@ requires isValidThread();
+//@ requires isDisposed();
 public void setText (String string) {
 	checkWidget();
 	if (string == null) error (SWT.ERROR_NULL_ARGUMENT);

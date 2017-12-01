@@ -1037,6 +1037,9 @@ public void setImageIndent (int indent) {
  *    <li>ERROR_THREAD_INVALID_ACCESS - if not called from the thread that created the receiver</li>
  * </ul>
  */
+//@ requires strings != null;
+//@ requires isValidThread();
+//@ requires isDisposed();
 public void setText (String [] strings) {
 	checkWidget ();
 	if (strings == null) error (SWT.ERROR_NULL_ARGUMENT);

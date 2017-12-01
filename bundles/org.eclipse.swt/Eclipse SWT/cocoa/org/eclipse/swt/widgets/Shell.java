@@ -1964,6 +1964,9 @@ void setScrolling () {
 }
 
 @Override
+//@ requires string != null;
+//@ requires isValidThread();
+//@ requires isDisposed();
 public void setText (String string) {
 	checkWidget();
 	if (string == null) error (SWT.ERROR_NULL_ARGUMENT);

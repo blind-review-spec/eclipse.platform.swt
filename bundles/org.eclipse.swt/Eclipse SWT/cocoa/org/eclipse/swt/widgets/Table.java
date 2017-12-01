@@ -1557,6 +1557,9 @@ public boolean getHeaderVisible () {
  *    <li>ERROR_THREAD_INVALID_ACCESS - if not called from the thread that created the receiver</li>
  * </ul>
  */
+//@ requires index >= 0 && index < getItemCount;
+//@ requires isValidThread();
+//@ requires isDisposed();
 public TableItem getItem (int index) {
 	checkWidget ();
 	if (!(0 <= index && index < itemCount)) error (SWT.ERROR_INVALID_RANGE);
